@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)file:///Users/ashleyrice/Desktop/gamePieces/FisHFace%20(2).htm -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body style="background-color:blue;">
+
+<div id="pic1" style="position: absolute; top: 434px; left: 383px;">
+<img src="./FACEmaskGame_files/originalPenelopeGame.png">
+</div>
+
+<div id="pic2" style="position: absolute; top: 82px; left: 859px;">
+<img src="./FACEmaskGame_files/TieDyeFaceMaskgame.png">
+</div>
+
+<div id="pic3" style="position: absolute; top: 551px; left: 774px;">
+<img src="./FACEmaskGame_files/bluefacemaskGame.png">
+</div>
+
+<div id="pic4" style="position: absolute; top: 340px; left: 668px;">
+<img src="./FACEmaskGame_files/punchfacemaskGAme.png">
+</div>
+
+<div id="pic5" style="position: absolute; top: 181px; left: 725px;">
+<img src="./FACEmaskGame_files/confettifacemaskGame.png">
+</div>
+<script>
+
+document.getElementById("pic1").addEventListener("mousedown", mousedrag );
+document.getElementById("pic1").addEventListener("touchstart", touchdrag );
+document.getElementById("pic2").addEventListener("mousedown", mousedrag );
+document.getElementById("pic2").addEventListener("touchstart", touchdrag );
+document.getElementById("pic3").addEventListener("mousedown", mousedrag );
+document.getElementById("pic3").addEventListener("touchstart", touchdrag );
+document.getElementById("pic4").addEventListener("mousedown", mousedrag );
+document.getElementById("pic4").addEventListener("touchstart", touchdrag );
+document.getElementById("pic5").addEventListener("mousedown", mousedrag );
+document.getElementById("pic5").addEventListener("touchstart", touchdrag );
+
+
+function mousedrag(e) {
+    dragpic = document.getElementById(this.id)
+    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    e = e || window.event;
+    e.preventDefault();
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    document.onmousemove = elementDrag;
+   
+   function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    dragpic.style.top = (dragpic.offsetTop - pos2) + "px";
+    dragpic.style.left = (dragpic.offsetLeft - pos1) + "px";
+        
+  }
+}
+
+
+function touchdrag(e) {
+    dragpic = document.getElementById(this.id)
+    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    e = e || window.event;
+    e.preventDefault();
+    pos3 = e.touches[0].clientX;
+    pos4 = e.touches[0].clientY;
+    document.ontouchend = closeDragElement;
+    document.ontouchmove = elementDragTouch;
+   
+   function elementDragTouch(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.touches[0].clientX;
+    pos2 = pos4 - e.touches[0].clientY;
+    pos3 = e.touches[0].clientX;
+    pos4 = e.touches[0].clientY;
+    // set the element's new position:
+    dragpic.style.top = (dragpic.offsetTop - pos2) + "px";
+    dragpic.style.left = (dragpic.offsetLeft - pos1) + "px";
+  }
+}
+
+function closeDragElement() {
+    document.onmouseup = null;
+    document.ontouchend = null;
+    document.onmousemove = null;
+    document.ontouchmove = null;
+}
+
+
+
+</script>
+
+
+
+</body></html>
